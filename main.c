@@ -36,7 +36,7 @@ int main(void)
 		args[i] = NULL;
 		i = 0;
 		execute_command(args);
-		print_list();
+		/*print_list();*/
 		free(args);
 		free(command);
 		command = NULL;
