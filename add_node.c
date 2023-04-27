@@ -1,9 +1,16 @@
 #include "main.h"
+
+/**
+  * add_process -  add a new new process to the process list
+  * @pid: the id of the new process
+  * @command: the command of the new process
+  */
+
 void add_process(pid_t pid, char *command)
 {
-	processe_node *new_node = malloc(sizeof(processe_node));
-	processe_node *processe_liste = NULL;
-	
+	process_node *new_node = malloc(sizeof(process_node));
+	process_node *process_list = NULL;
+
 	if (new_node == NULL)
 	{
 		exit(-1);
@@ -13,14 +20,14 @@ void add_process(pid_t pid, char *command)
 	new_node->status = 0;
 	new_node->next = NULL;
 
-	if (processe_liste == NULL)
+	if (process_list == NULL)
 	{
-		processe_liste = new_node;
+		process_list = new_node;
 	}
 	else
 	{
-		new_node->next = processe_liste;
-		processe_liste = new_node;
+		new_node->next = process_list;
+		process_list = new_node;
 	}
 	free(new_node);
 }
