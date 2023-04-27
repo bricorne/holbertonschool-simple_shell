@@ -5,6 +5,10 @@ void execute_command(char **args)
 	int status;
 	char *path = "/bin/";
 	char *full_path;
+
+	if (args[0] == NULL)
+		return;
+
 	if (args[0][0] == '/')
 	{
 		full_path = args[0];
