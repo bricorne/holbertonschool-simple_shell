@@ -22,7 +22,6 @@ int main(void)
 			while (*env)
 			{
 				printf("%s\n", *env);
-				free(env);
 				env++;
 			}
 		}

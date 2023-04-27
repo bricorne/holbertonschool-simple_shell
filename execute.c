@@ -9,7 +9,7 @@ void execute_command(char **args)
 	if (args[0] == NULL)
 		return;
 
-	if (args[0][0] == '/')
+	if (args[0][0] == '/' || args[0][0] == '.')
 	{
 		full_path = args[0];
 	}
@@ -19,7 +19,7 @@ void execute_command(char **args)
 		if (full_path == NULL)
 		{
 			perror("malloc failed");
-			exit(EXIT_FAILURE);
+			exit(2);
 		}
 		strcpy(full_path, path);
 		strcat(full_path, args[0]);
