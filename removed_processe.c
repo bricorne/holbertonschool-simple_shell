@@ -1,26 +1,34 @@
 #include "main.h"
+
+/**
+ * remove_process - removes a process node from the process list
+ * based on its PID
+ *
+ * @pid: the PID of the process to be removed
+ */
+
 void remove_process(pid_t pid)
 {
-	processe_node *processe_liste = NULL;
-	processe_node *prev_processe = NULL;
-	processe_node *current_processe = processe_liste;
+	process_node *process_list = NULL;
+	process_node *prev_process = NULL;
+	process_node *current_process = process_list;
 
-	while (current_processe)
+	while (current_process)
 	{
-		if (current_processe->pid == pid)
+		if (current_process->pid == pid)
 		{
-			if (prev_processe == NULL)
+			if (prev_process == NULL)
 			{
-				processe_liste = current_processe->next;
+				process_list = current_process->next;
 			}
 			else
 			{
-				prev_processe->next = current_processe->next;
+				prev_process->next = current_process->next;
 			}
-			free(current_processe);
+			free(current_process);
 			return;
 		}
-		prev_processe = current_processe;
-		current_processe = current_processe->next;
+		prev_process = current_process;
+		current_process = current_process->next;
 	}
 }

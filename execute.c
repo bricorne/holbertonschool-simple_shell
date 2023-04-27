@@ -1,4 +1,12 @@
 #include "main.h"
+
+/**
+  * execute_command - executes a command
+  * and adds the process to the process list
+  *
+  * @args: an array of arguments for the command to be executed
+  */
+
 void execute_command(char **args)
 {
 	pid_t pid;
@@ -8,24 +16,20 @@ void execute_command(char **args)
 
 	if (args[0] == NULL)
 		return;
-
-	if (args[0][0] == '/')
-	{
+	if (args[0][0] == '/' || args[0][0] == '.')
 		full_path = args[0];
-	}
 	else
 	{
 		full_path = malloc(strlen(path) + strlen(args[0]) + 1);
 		if (full_path == NULL)
 		{
 			perror("malloc failed");
-			exit(EXIT_FAILURE);
+			exit(2);
 		}
 		strcpy(full_path, path);
 		strcat(full_path, args[0]);
 	}
 	pid = fork();
-
 	if (pid == -1)
 	{
 		perror("fork failed");

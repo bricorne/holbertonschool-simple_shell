@@ -1,4 +1,10 @@
 #include "main.h"
+
+/**
+ * main - main function for the shell program
+ * Return: 0 if the program runs successfully
+ */
+
 int main(void)
 {
 	char *command = NULL;
@@ -19,11 +25,9 @@ int main(void)
 		}
 		if (strcmp(command, "env") == 0)
 		{
-			while (*env)
+			for (; *env; env++)
 			{
 				printf("%s\n", *env);
-				free(env);
-				env++;
 			}
 		}
 		token = strtok(command, " ");
@@ -31,7 +35,7 @@ int main(void)
 		while (token != NULL)
 		{
 			args[i] = token;
-			token = strtok(NULL, " "); 
+			token = strtok(NULL, " ");
 			i++;
 		}
 		args[i] = NULL;
@@ -42,6 +46,5 @@ int main(void)
 		command = NULL;
 		len = 0;
 	}
-	
 	return (0);
 }
