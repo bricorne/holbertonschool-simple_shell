@@ -45,7 +45,6 @@ void execute_command(char **args)
 		waitpid(pid, &status, 0);
 		remove_process(pid);
 	}
-	printf("status = %d\n",status);
 	if (args[0][0] != '/')
 		free(full_path);
 }
