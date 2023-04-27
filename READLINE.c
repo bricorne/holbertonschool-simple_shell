@@ -1,7 +1,10 @@
 #include "main.h"
 void read_command(char **command, size_t *len)
 {
-	printf("$ ");
+	if (isatty(STDIN_FILENO))
+	{
+		printf("$ ");
+	}
 	if (getline(command, len, stdin) ==  -1)
 	{
 		exit(EXIT_FAILURE);
