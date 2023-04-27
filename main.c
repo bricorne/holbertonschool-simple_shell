@@ -28,10 +28,6 @@ int main(void)
 			for (; *env; env++)
 			{
 				printf("%s\n", *env);
-<<<<<<< HEAD
-				env++;
-=======
->>>>>>> 2b219286048db10157a1859a45cdefc28fa6512c
 			}
 		}
 		token = strtok(command, " ");

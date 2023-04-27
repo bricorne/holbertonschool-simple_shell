@@ -16,13 +16,8 @@ void execute_command(char **args)
 
 	if (args[0] == NULL)
 		return;
-<<<<<<< HEAD
 
 	if (args[0][0] == '/' || args[0][0] == '.')
-	{
-=======
-	if (args[0][0] == '/' || args[0][0] == '.')
->>>>>>> 2b219286048db10157a1859a45cdefc28fa6512c
 		full_path = args[0];
 	else
 	{
