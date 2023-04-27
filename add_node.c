@@ -9,4 +9,5 @@ void add_process(pid_t pid, char *command)
 	new_node->status = 0;
 	new_node->next = processe_liste;
 	processe_liste = new_node;
+	free(new_node);
 }
