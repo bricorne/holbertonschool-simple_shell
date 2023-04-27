@@ -40,6 +40,8 @@ void execute_command(char **args)
 		add_process(pid, args[0]);
 		waitpid(pid, &status, 0);
 		remove_process(pid);
+		if (WIFEXITED(status))
+			status = WEXITSTATUS(status);
 	}
 	if (args[0][0] != '/')
 		free(full_path);
