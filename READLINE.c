@@ -9,7 +9,7 @@ void read_command(char **command, size_t *len)
 	{
 		if (command)
 			free(*command);
-		exit(EXIT_FAILURE);
+		exit(0);
 	}
 	(*command)[strlen(*command) - 1] = '\0';
 }
