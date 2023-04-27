@@ -4,13 +4,19 @@ void execute_command(char **args)
 	pid_t pid;
 	int status;
 	char *path = "/bin/";
-	char *full_path = malloc(strlen(path) + strlen(args[0]) + 1);
+	char *full_path;
 	if (args[0][0] == '/')
 	{
 		full_path = args[0];
 	}
 	else
 	{
+		full_path = malloc(strlen(path) + strlen(args[0]) + 1);
+		if (full_path == NULL)
+		{
+			perror("malloc failed");
+			exit(EXIT_FAILURE);
+		}
 		strcpy(full_path, path);
 		strcat(full_path, args[0]);
 	}
@@ -35,5 +41,6 @@ void execute_command(char **args)
 		waitpid(pid, &status, 0);
 		remove_process(pid);
 	}
-	free(full_path);
+	if (args[0][0] != '/')
+		free(full_path);
 }
