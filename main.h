@@ -21,10 +21,6 @@ typedef struct node
 void add_process(pid_t pid, char *command);
 void remove_process(pid_t pid);
 void execute_command(char **args);
-<<<<<<< HEAD
-void read_command(char **command,size_t *len);
-=======
 void read_command(char **command, size_t *len);
 
->>>>>>> 2b219286048db10157a1859a45cdefc28fa6512c
 #endif
