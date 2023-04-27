@@ -22,6 +22,7 @@ int main(void)
 			while (*env)
 			{
 				printf("%s\n", *env);
+				free(env);
 				env++;
 			}
 		}
@@ -36,11 +37,11 @@ int main(void)
 		args[i] = NULL;
 		i = 0;
 		execute_command(args);
-		/*print_list();*/
 		free(args);
 		free(command);
 		command = NULL;
 		len = 0;
 	}
+	
 	return (0);
 }
