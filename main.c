@@ -12,7 +12,7 @@ int main(void)
 	int i = 0;
 	char *token;
 	char **args;
-	char **env = __environ;
+	char **env = environ;
 
 	while (1)
 	{
